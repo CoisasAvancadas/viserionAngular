@@ -24,7 +24,8 @@ LoginComponent = __decorate([
         selector: 'login',
         template: "\n    <form #f=\"ngForm\" (ngSubmit)=\"onLogin(f.value)\" *ngIf=\"!auth.loggedIn()\">\n      <input type=\"text\" placeholder=\"username\" ngControl=\"username\">\n      <input type=\"password\" placeholder=\"password\" ngControl=\"password\">\n      <button type=\"submit\">Submit</button>    \n    </form>\n  "
     }),
-    __metadata("design:paramtypes", [auth_service_1.AuthService])
+    __metadata("design:paramtypes", [typeof (_a = typeof auth_service_1.AuthService !== "undefined" && auth_service_1.AuthService) === "function" && _a || Object])
 ], LoginComponent);
 exports.LoginComponent = LoginComponent;
+var _a;
 //# sourceMappingURL=login.component.js.map

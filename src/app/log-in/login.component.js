@@ -6,27 +6,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
-        this.name = 'Angular';
+var LogIn = (function () {
+    function LogIn() {
     }
-    AppComponent.prototype.ngAfterViewInit = function () {
+    LogIn.prototype.ngAfterViewInit = function () {
         $(document).ready(function () {
-            $('.button-collapse').sideNav({
-                menuWidth: 300,
-                edge: 'left',
-                closeOnClick: true,
-                draggable: true
+            $(".login-form").on("submit", function () {
+                return false;
             });
         });
     };
-    return AppComponent;
+    return LogIn;
 }());
-AppComponent = __decorate([
+LogIn = __decorate([
     core_1.Component({
-        selector: 'my-app',
-        templateUrl: './app.component.html',
+        selector: 'login',
+        templateUrl: './login.component.html'
     })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], LogIn);
+exports.LogIn = LogIn;
+//# sourceMappingURL=login.component.js.map

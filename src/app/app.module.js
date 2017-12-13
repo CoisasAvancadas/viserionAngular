@@ -9,6 +9,8 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
+var login_component_1 = require("./log-in/login.component");
+var not_found_component_1 = require("./not-found/not-found.component");
 var app_routes_1 = require("./routes/app.routes");
 var AppModule = (function () {
     function AppModule() {
@@ -22,7 +24,9 @@ AppModule = __decorate([
             router_1.RouterModule.forRoot(app_routes_1.ROUTES)
         ],
         declarations: [
-            app_component_1.AppComponent
+            app_component_1.AppComponent,
+            login_component_1.LogIn,
+            not_found_component_1.NotFound
         ],
         bootstrap: [
             app_component_1.AppComponent

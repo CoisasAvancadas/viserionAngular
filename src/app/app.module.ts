@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent }  from './app.component';
+import { LogIn }  from './log-in/login.component';
+import { NotFound }  from './not-found/not-found.component';
 
 import { ROUTES } from "./routes/app.routes";
 
@@ -13,7 +15,9 @@ import { ROUTES } from "./routes/app.routes";
     RouterModule.forRoot(ROUTES)
   ],
   declarations : [
-    AppComponent
+    AppComponent,
+    LogIn,
+    NotFound
   ],
   bootstrap : [
     AppComponent

@@ -1,16 +1,14 @@
 "use strict";
-var auth_guard_service_1 = require("../auth/auth-guard.service");
+var login_component_1 = require("../log-in/login.component");
+var not_found_component_1 = require("../not-found/not-found.component");
 exports.ROUTES = [
     {
-        path: ''
-    },
-    {
         path: '',
-        canActivate: [auth_guard_service_1.AuthGuard]
+        component: login_component_1.LogIn
     },
     {
-        path: 'unauthorized',
-        component: null //UnauthorizedComponent
+        path: '**',
+        component: not_found_component_1.NotFound
     }
 ];
 //# sourceMappingURL=app.routes.js.map
