@@ -21,12 +21,14 @@ export class LogIn {
     let user = form.value.user;
     let senha = form.value.senha;
 
-    let url = "https://9adcf454-cedd-46ad-9e94-5d92557eca74.mock.pstmn.io/login";
+    let baseUrl = "http://localhost:8084/Viserion/api/";
+    let url = baseUrl + "Usuarios/auth";
     let formbody = {
       username : user,
       password : senha
     };
     let body = JSON.stringify(formbody);
+    console.log(formbody);
 
     let headers = new Headers({ 'Content-Type': 'application/json'});
     let options = new RequestOptions({ headers: headers });
@@ -34,9 +36,7 @@ export class LogIn {
     this.http.post(url, body, options)
       .subscribe(
         (res) => {
-          var resposta = res.json();
-          console.log(resposta.mensagem);
-          localStorage.setItem("mensagem", resposta.mensagem);
+          console.log(res);
         },
         (err) => {
           console.log(err.json());

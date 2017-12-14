@@ -9,6 +9,9 @@ import { AppComponent }  from './app.component';
 import { LogIn }  from './log-in/login.component';
 import { NotFound }  from './not-found/not-found.component';
 
+import { ListHome }  from './list-home/list-home.component';
+import { ListService } from './list-home/list-home.service';
+
 import { ROUTES } from "./routes/app.routes";
 
 @NgModule({
@@ -22,7 +25,11 @@ import { ROUTES } from "./routes/app.routes";
   declarations : [
     AppComponent,
     LogIn,
-    NotFound
+    NotFound,
+    ListHome
+  ],
+  providers : [
+    ListService
   ],
   bootstrap : [
     AppComponent

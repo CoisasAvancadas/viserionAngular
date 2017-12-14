@@ -1,10 +1,10 @@
 "use strict";
-var login_component_1 = require("../log-in/login.component");
 var not_found_component_1 = require("../not-found/not-found.component");
+var list_home_component_1 = require("../list-home/list-home.component");
 exports.ROUTES = [
     {
         path: '',
-        component: login_component_1.LogIn
+        component: list_home_component_1.ListHome
     },
     {
         path: '**',

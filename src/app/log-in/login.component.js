@@ -18,19 +18,19 @@ var LogIn = (function () {
         this.logar = function (form) {
             var user = form.value.user;
             var senha = form.value.senha;
-            var url = "https://9adcf454-cedd-46ad-9e94-5d92557eca74.mock.pstmn.io/login";
+            var baseUrl = "http://localhost:8084/Viserion/api/";
+            var url = baseUrl + "Usuarios/auth";
             var formbody = {
                 username: user,
                 password: senha
             };
             var body = JSON.stringify(formbody);
+            console.log(formbody);
             var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
             var options = new http_1.RequestOptions({ headers: headers });
             _this.http.post(url, body, options)
                 .subscribe(function (res) {
-                var resposta = res.json();
-                console.log(resposta.mensagem);
-                localStorage.setItem("mensagem", resposta.mensagem);
+                console.log(res);
             }, function (err) {
                 console.log(err.json());
             });
