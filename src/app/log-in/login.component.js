@@ -5,24 +5,46 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
+var http_1 = require("@angular/http");
 var LogIn = (function () {
-    function LogIn() {
-    }
-    LogIn.prototype.ngAfterViewInit = function () {
-        $(document).ready(function () {
-            $(".login-form").on("submit", function () {
-                return false;
+    function LogIn(router, http) {
+        var _this = this;
+        this.http = http;
+        this.logar = function (form) {
+            var user = form.value.user;
+            var senha = form.value.senha;
+            var url = "https://9adcf454-cedd-46ad-9e94-5d92557eca74.mock.pstmn.io/login";
+            var formbody = {
+                username: user,
+                password: senha
+            };
+            var body = JSON.stringify(formbody);
+            var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+            var options = new http_1.RequestOptions({ headers: headers });
+            _this.http.post(url, body, options)
+                .subscribe(function (res) {
+                var resposta = res.json();
+                console.log(resposta.mensagem);
+                localStorage.setItem("mensagem", resposta.mensagem);
+            }, function (err) {
+                console.log(err.json());
             });
-        });
-    };
+        };
+        this.router = router;
+    }
     return LogIn;
 }());
 LogIn = __decorate([
     core_1.Component({
         selector: 'login',
         templateUrl: './login.component.html'
-    })
+    }),
+    __metadata("design:paramtypes", [router_1.Router, http_1.Http])
 ], LogIn);
 exports.LogIn = LogIn;
 //# sourceMappingURL=login.component.js.map

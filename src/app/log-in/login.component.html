@@ -3,18 +3,18 @@
 </div>
 
 <div class="row">
-  <form action="" class="col s12 login-form">
+  <form action="" class="col s12 login-form" #signupForm="ngForm" (ngSubmit)="logar(signupForm)">
     <div class="row">
       <div class="input-field col s12">
-        <input type="text" class="validate" id="username">
-        <label for="username">Usuário</label>
+        <input type="text" class="validate" id="user" name="user" ngModel>
+        <label for="user">Usuário</label>
       </div>
       <div class="input-field col s12">
-        <input type="password" class="validate" id="senha">
+        <input type="password" class="validate" id="senha" name="senha" ngModel>
         <label for="senha">Senha</label>
       </div>
       <div class="input-field col s12">
-        <button type="submit" class="col s12 btn btn-primary">Entrar</button>
+        <button type="submit" class="col s12 btn btn-primary waves-effect waves-light">Entrar</button>
       </div>
       <div class="col s12" style="text-align: center; margin-top: 25px;">
         <a href="/cadastro">Cadastre-se</a>
