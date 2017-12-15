@@ -1,16 +1,21 @@
-
-  <div class="row">
-    <div class="col s12 m7" *ngFor="let evento of eventos">
-      <ng-container *ngIf="evento.instituicao.id == instituicao">
-      <div class="card">
-        <div class="card-image">
-          <img src="http://morganfillman.space/800/300" draggable="false">
-          <span class="card-title">{{evento.nome}}</span>
-        </div>
-        <div class="card-action">
-          <button #button class="waves-effect waves-light btn-flat" attr.id="{{evento.id}}" (click)="direcionar(button)">Ver atividades</button>
-        </div>
+<div class="row">
+  <div class="col s12 m7" *ngFor="let evento of eventos">
+    <ng-container *ngIf="evento.instituicao.id == instituicao">
+    <div class="card">
+      <div class="card-image">
+        <img src="http://morganfillman.space/800/300" draggable="false">
+        <span class="card-title">{{evento.nome}}</span>
       </div>
-      </ng-container>
+      <div class="card-content">
+          <p>{{evento.descricao}}</p>
+      </div>
+      <div class="card-action">
+        <button #button class="waves-effect waves-light btn-flat" attr.id="{{evento.id}}" (click)="direcionar(button)">Ver atividades</button>
+      </div>
     </div>
+    </ng-container>
   </div>
+  <div class="col s12" style="text-align: center; margin-top: 25px;">
+    <a href="/instituicoes">voltar às instituições</a>
+  </div>
+</div>
