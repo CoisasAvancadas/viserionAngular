@@ -18,21 +18,26 @@ var LogIn = (function () {
         this.logar = function (form) {
             var user = form.value.user;
             var senha = form.value.senha;
+            console.log(user);
+            console.log(senha);
+            //let params = new URLSearchParams;
+            var params = new FormData();
+            params.append("usuario.username", user);
+            params.append("usuario.password", senha);
+            console.log(params);
             var baseUrl = "http://localhost:8084/Viserion/api/";
-            var url = baseUrl + "Usuarios/auth";
-            var formbody = {
-                username: user,
-                password: senha
-            };
-            var body = JSON.stringify(formbody);
-            console.log(formbody);
-            var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-            var options = new http_1.RequestOptions({ headers: headers });
-            _this.http.post(url, body, options)
+            var url = "http://localhost:8084/Viserion/api/Usuarios/auth";
+            var headers = new http_1.Headers();
+            var options = new http_1.RequestOptions({ params: params });
+            _this.http.post(url, params)
                 .subscribe(function (res) {
                 console.log(res);
+                console.log(res.json());
+                console.log(res.json().string);
+                localStorage.setItem("token", res.json().string);
+                _this.router.navigateByUrl('instituicoes');
             }, function (err) {
-                console.log(err.json());
+                console.log(err);
             });
         };
         this.router = router;

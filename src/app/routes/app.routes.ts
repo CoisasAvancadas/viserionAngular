@@ -9,6 +9,10 @@ import { ListHome }  from '../list-home/list-home.component';
 export const ROUTES : Routes = [
   {
     path : '',
+    component : LogIn
+  },
+  {
+    path : 'instituicoes',
     component : ListHome
   },
   {

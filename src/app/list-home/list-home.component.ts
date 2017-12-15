@@ -33,20 +33,8 @@ export class ListHome {
     );
   }
 
-  /*public getJSON(): Observable<any> {
-    let baseUrl = "http://localhost:8084/Viserion/api/";
-    let url = baseUrl + "Instituicaos";
-
-    this.http.get(url).subscribe(
-      (res) => {
-        console.log(res.json());
-        
-      },
-      (err) => {
-
-      }
-    )
-    return this.http.get(url)
-      .map((res:any) => res.json());
-  }*/
+  public direcionar = (button) => {
+    console.log(button);
+    console.log(button.id);
+  }
 }

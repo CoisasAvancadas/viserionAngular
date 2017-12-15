@@ -22,6 +22,10 @@ var ListHome = (function () {
         this.getInstituicoes = function () {
             _this._listInstituicao.getData().subscribe(function (instituicoes) { return _this.instituicoes = instituicoes; }, function (error) { return _this.errorMessage = error; });
         };
+        this.direcionar = function (button) {
+            console.log(button);
+            console.log(button.id);
+        };
         this.getInstituicoes();
     }
     return ListHome;

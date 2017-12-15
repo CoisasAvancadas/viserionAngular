@@ -3,10 +3,12 @@
     <div class="card">
       <div class="card-image">
         <img src="http://morganfillman.space/800/300" draggable="false">
-        <span class="card-title">{{instituicao.title}}</span>
+        <span class="card-title">{{instituicao.nome}}</span>
       </div>
+      {{instituicao.id}}
+      
       <div class="card-action">
-        <a href="#" class="waves-effect waves-light btn-flat">Ver eventos</a>
+        <button #button class="waves-effect waves-light btn-flat" attr.id="{{instituicao.id}}" (click)="direcionar(button)">Ver eventos</button>
       </div>
     </div>
   </div>

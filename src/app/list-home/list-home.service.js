@@ -9,17 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
 var Rx_1 = require("rxjs/Rx");
+var http_1 = require("@angular/http");
 var ListService = (function () {
     function ListService(http) {
         var _this = this;
         this.http = http;
         this.getData = function () {
-            //let baseUrl = "http://localhost:8084/Viserion/api/";
-            //let url = baseUrl + "Instituicaos";
-            var url = "http://jsonplaceholder.typicode.com/posts/";
-            return _this.http.get(url).map(_this.extractData).catch(_this.handleError);
+            var baseUrl = "http://localhost:8084/Viserion/api/";
+            var url = baseUrl + "Instituicaos";
+            var token = localStorage.getItem("token");
+            console.log(token);
+            var headers = new http_1.Headers();
+            headers.append("Authorization", token);
+            var options = new http_1.RequestOptions({ headers: headers });
+            return _this.http.get(url, options)
+                .map(_this.extractData)
+                .catch(_this.handleError);
         };
     }
     ListService.prototype.extractData = function (res) {

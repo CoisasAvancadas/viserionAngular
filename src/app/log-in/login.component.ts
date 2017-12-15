@@ -3,8 +3,6 @@ import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
-declare var $ : any;
-
 @Component({
   selector : 'login',
   templateUrl : './login.component.html'
@@ -20,26 +18,32 @@ export class LogIn {
   logar = (form: NgForm) => {
     let user = form.value.user;
     let senha = form.value.senha;
+    console.log(user);
+    console.log(senha);
+
+    //let params = new URLSearchParams;
+    let params:FormData = new FormData();
+    params.append("usuario.username", user);
+    params.append("usuario.password", senha);
+    console.log(params);
 
     let baseUrl = "http://localhost:8084/Viserion/api/";
-    let url = baseUrl + "Usuarios/auth";
-    let formbody = {
-      username : user,
-      password : senha
-    };
-    let body = JSON.stringify(formbody);
-    console.log(formbody);
+    let url = "http://localhost:8084/Viserion/api/Usuarios/auth";
 
-    let headers = new Headers({ 'Content-Type': 'application/json'});
-    let options = new RequestOptions({ headers: headers });
+    let headers = new Headers();
+    let options = new RequestOptions({params});
 
-    this.http.post(url, body, options)
+    this.http.post(url, params)
       .subscribe(
         (res) => {
           console.log(res);
+          console.log(res.json());
+          console.log(res.json().string);
+          localStorage.setItem("token", res.json().string);
+          this.router.navigateByUrl('instituicoes');
         },
         (err) => {
-          console.log(err.json());
+          console.log(err);
         }
       )
   }
