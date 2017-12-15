@@ -1,9 +1,14 @@
 <div class="row">
-  <div class="col s12 m7" *ngFor="let evento of eventos">
+  <div class="col s12" style="text-align: right; margin-top: 25px;">
+    <a href="/">logout</a>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12 m6" *ngFor="let evento of eventos">
     <ng-container *ngIf="evento.instituicao.id == instituicao">
     <div class="card">
       <div class="card-image">
-        <img src="http://morganfillman.space/800/300" draggable="false">
+        <img src="https://i.imgur.com/AMf9X7E.jpg" draggable="false">
         <span class="card-title">{{evento.nome}}</span>
       </div>
       <div class="card-content">

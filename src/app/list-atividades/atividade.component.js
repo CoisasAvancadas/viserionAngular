@@ -24,7 +24,10 @@ var ListAtividade = (function () {
         this.getAtividades = function () {
             _this._listAtividade.getData().subscribe(function (atividade) {
                 _this.atividades = atividade;
-            }, function (error) { return _this.errorMessage = error; });
+            }, function (error) {
+                _this.errorMessage = error;
+                _this.router.navigateByUrl("/");
+            });
         };
         this.direcionar = function (button) {
             localStorage.setItem("AtividadeId", button.id);

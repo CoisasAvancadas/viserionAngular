@@ -47,4 +47,12 @@ export class LogIn {
         }
       )
   }
+
+  logout = () => {
+    localStorage.removeItem("token");
+  }
+
+  ngOnInit() {
+    localStorage.removeItem("token");
+  }
 }

@@ -40,8 +40,14 @@ var LogIn = (function () {
                 console.log(err);
             });
         };
+        this.logout = function () {
+            localStorage.removeItem("token");
+        };
         this.router = router;
     }
+    LogIn.prototype.ngOnInit = function () {
+        localStorage.removeItem("token");
+    };
     return LogIn;
 }());
 LogIn = __decorate([

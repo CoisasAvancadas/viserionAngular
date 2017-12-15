@@ -33,7 +33,10 @@ export class ListAtividade {
       (atividade) => {
         this.atividades = atividade;
       },
-      error => this.errorMessage = <any>error
+      (error) => {
+        this.errorMessage = <any>error;
+        this.router.navigateByUrl("/");
+      }
     );
   }
 

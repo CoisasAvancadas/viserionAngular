@@ -1,21 +1,25 @@
 <div class="row">
-  <div class="col s12 m7" *ngFor="let atividade of atividades">
+  <div class="col s12" style="text-align: right; margin-top: 25px;">
+    <a href="/">logout</a>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12 m6" *ngFor="let atividade of atividades">
     <ng-container *ngIf="atividade.evento.id == evento">
     <div class="card">
       <div class="card-image">
-        <img src="http://morganfillman.space/800/300" draggable="false">
+        <img src="https://i.imgur.com/AMf9X7E.jpg" draggable="false">
         <span class="card-title">{{atividade.nome}}</span>
       </div>
       <div class="card-content">
           <p>{{atividade.tipoAtividade.nome}}</p>
-      </div>
-      <div class="card-action">
-        <button #button class="waves-effect waves-light btn-flat" attr.id="{{atividade.id}}" (click)="direcionar(button)">Inscreva-se</button>
+          <p>Início: <strong>{{atividade.horaInicio}}</strong></p>
+          <p>Fim: <strong>{{atividade.horaFim}}</strong></p>
       </div>
     </div>
     </ng-container>
   </div>
   <div class="col s12" style="text-align: center; margin-top: 25px;">
-    <a href="/instituicoes">voltar às instituições</a>
+    <a href="/eventos">voltar aos eventos da instituição</a>
   </div>
 </div>

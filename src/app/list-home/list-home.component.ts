@@ -31,7 +31,10 @@ export class ListHome {
   public getInstituicoes = () => {
     this._listInstituicao.getData().subscribe(
       instituicoes => this.instituicoes = instituicoes,
-      error => this.errorMessage = <any>error
+      (error) => {
+        this.errorMessage = <any>error;
+        this.router.navigateByUrl("/");
+      }
     );
   }
 

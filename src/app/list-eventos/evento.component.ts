@@ -34,7 +34,10 @@ export class ListEvento {
       (eventos) => {
         this.eventos = eventos;
       },
-      error => this.errorMessage = <any>error
+      (error) => {
+        this.errorMessage = <any>error;
+        this.router.navigateByUrl("/");
+      }
     );
   }
 

@@ -24,7 +24,10 @@ var ListEvento = (function () {
         this.getEventos = function () {
             _this._listEvento.getData().subscribe(function (eventos) {
                 _this.eventos = eventos;
-            }, function (error) { return _this.errorMessage = error; });
+            }, function (error) {
+                _this.errorMessage = error;
+                _this.router.navigateByUrl("/");
+            });
         };
         this.direcionar = function (button) {
             localStorage.setItem("EventoId", button.id);
