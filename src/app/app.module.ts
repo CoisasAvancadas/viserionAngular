@@ -12,6 +12,9 @@ import { NotFound }  from './not-found/not-found.component';
 import { ListHome }  from './list-home/list-home.component';
 import { ListService } from './list-home/list-home.service';
 
+import { ListEvento }  from './list-eventos/evento.component';
+import { EventoService } from './list-eventos/evento.service';
+
 import { ROUTES } from "./routes/app.routes";
 
 @NgModule({
@@ -26,10 +29,12 @@ import { ROUTES } from "./routes/app.routes";
     AppComponent,
     LogIn,
     NotFound,
-    ListHome
+    ListHome,
+    ListEvento
   ],
   providers : [
-    ListService
+    ListService,
+    EventoService
   ],
   bootstrap : [
     AppComponent

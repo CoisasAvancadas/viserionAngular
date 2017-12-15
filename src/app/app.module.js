@@ -15,6 +15,8 @@ var login_component_1 = require("./log-in/login.component");
 var not_found_component_1 = require("./not-found/not-found.component");
 var list_home_component_1 = require("./list-home/list-home.component");
 var list_home_service_1 = require("./list-home/list-home.service");
+var evento_component_1 = require("./list-eventos/evento.component");
+var evento_service_1 = require("./list-eventos/evento.service");
 var app_routes_1 = require("./routes/app.routes");
 var AppModule = (function () {
     function AppModule() {
@@ -34,10 +36,12 @@ AppModule = __decorate([
             app_component_1.AppComponent,
             login_component_1.LogIn,
             not_found_component_1.NotFound,
-            list_home_component_1.ListHome
+            list_home_component_1.ListHome,
+            evento_component_1.ListEvento
         ],
         providers: [
-            list_home_service_1.ListService
+            list_home_service_1.ListService,
+            evento_service_1.EventoService
         ],
         bootstrap: [
             app_component_1.AppComponent

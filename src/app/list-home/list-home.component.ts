@@ -21,9 +21,11 @@ export class ListHome {
   
   private instituicoes:List[] = [];
   private errorMessage: any = '';
+  private router: Router;
 
-  constructor(private _listInstituicao: ListService) {
+  constructor(private _listInstituicao: ListService, router: Router) {
     this.getInstituicoes();
+    this.router = router;
   }
 
   public getInstituicoes = () => {
@@ -34,7 +36,7 @@ export class ListHome {
   }
 
   public direcionar = (button) => {
-    console.log(button);
-    console.log(button.id);
+    localStorage.setItem("InstituicaoId", button.id);
+    this.router.navigateByUrl("eventos");
   }
 }
