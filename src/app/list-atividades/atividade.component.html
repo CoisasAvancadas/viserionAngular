@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col s12 m7" *ngFor="let atividade of atividades">
+    <ng-container *ngIf="atividade.evento.id == evento">
+    <div class="card">
+      <div class="card-image">
+        <img src="http://morganfillman.space/800/300" draggable="false">
+        <span class="card-title">{{atividade.nome}}</span>
+      </div>
+      <div class="card-content">
+          <p>{{atividade.tipoAtividade.nome}}</p>
+      </div>
+      <div class="card-action">
+        <button #button class="waves-effect waves-light btn-flat" attr.id="{{atividade.id}}" (click)="direcionar(button)">Inscreva-se</button>
+      </div>
+    </div>
+    </ng-container>
+  </div>
+  <div class="col s12" style="text-align: center; margin-top: 25px;">
+    <a href="/instituicoes">voltar às instituições</a>
+  </div>
+</div>

@@ -13,35 +13,34 @@ var router_1 = require("@angular/router");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/toPromise");
-var evento_service_1 = require("./evento.service");
-var ListEvento = (function () {
-    function ListEvento(_listEvento, router) {
+var atividade_service_1 = require("./atividade.service");
+var ListAtividade = (function () {
+    function ListAtividade(_listAtividade, router) {
         var _this = this;
-        this._listEvento = _listEvento;
-        this.eventos = [];
+        this._listAtividade = _listAtividade;
+        this.atividades = [];
         this.errorMessage = '';
-        this.instituicao = localStorage.getItem("InstituicaoId");
-        this.getEventos = function () {
-            _this._listEvento.getData().subscribe(function (eventos) {
-                _this.eventos = eventos;
+        this.evento = localStorage.getItem("EventoId");
+        this.getAtividades = function () {
+            _this._listAtividade.getData().subscribe(function (atividade) {
+                _this.atividades = atividade;
             }, function (error) { return _this.errorMessage = error; });
         };
         this.direcionar = function (button) {
-            localStorage.setItem("EventoId", button.id);
-            _this.router.navigateByUrl("atividades");
+            localStorage.setItem("AtividadeId", button.id);
+            //this.router.navigateByUrl("atividade");
         };
-        this.getEventos();
-        this.router = router;
+        this.getAtividades();
     }
-    return ListEvento;
+    return ListAtividade;
 }());
-ListEvento = __decorate([
+ListAtividade = __decorate([
     core_1.Component({
-        selector: "evento",
-        templateUrl: './evento.component.html'
+        selector: "atividade",
+        templateUrl: './atividade.component.html'
     }),
     core_1.Injectable(),
-    __metadata("design:paramtypes", [evento_service_1.EventoService, router_1.Router])
-], ListEvento);
-exports.ListEvento = ListEvento;
-//# sourceMappingURL=evento.component.js.map
+    __metadata("design:paramtypes", [atividade_service_1.AtividadeService, router_1.Router])
+], ListAtividade);
+exports.ListAtividade = ListAtividade;
+//# sourceMappingURL=atividade.component.js.map

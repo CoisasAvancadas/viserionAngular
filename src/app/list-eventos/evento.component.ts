@@ -26,6 +26,7 @@ export class ListEvento {
 
   constructor(private _listEvento: EventoService, router: Router) {
     this.getEventos();
+    this.router = router;
   }
 
   public getEventos = () => {

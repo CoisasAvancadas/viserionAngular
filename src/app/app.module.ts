@@ -15,6 +15,9 @@ import { ListService } from './list-home/list-home.service';
 import { ListEvento }  from './list-eventos/evento.component';
 import { EventoService } from './list-eventos/evento.service';
 
+import { ListAtividade }  from './list-atividades/atividade.component';
+import { AtividadeService } from './list-atividades/atividade.service';
+
 import { ROUTES } from "./routes/app.routes";
 
 @NgModule({
@@ -30,11 +33,13 @@ import { ROUTES } from "./routes/app.routes";
     LogIn,
     NotFound,
     ListHome,
-    ListEvento
+    ListEvento,
+    ListAtividade
   ],
   providers : [
     ListService,
-    EventoService
+    EventoService,
+    AtividadeService
   ],
   bootstrap : [
     AppComponent
